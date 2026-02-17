@@ -1,21 +1,90 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
    
-   
-    
 }
 
-.card{
- border: 2px solid #000;
+.card {
+     /* background-color: #b6aaaa; */
+    border: 2px solid #000;
     width: 90%;
     max-width: 700px;
-    margin: 100px auto 0;
-    padding: 40px  35px;
+    margin: 100px auto 30px;
+    padding: 40px 35px;
     text-align: center;
 }
+
+.search {
+    border: 2px solid #000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    flex: 1;
+    margin-right: 30px;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+}
+
+.search button img{  
+        width: 20px;
+}
+
+
+.weather-icon{
+     width: clamp(24px, 40vw, 130px);
+    margin-top: 80px    ;
+}
+.detail img{
+     width: clamp(24px, 40vw, 80px);
+    margin-top: 80px    ;
+}
+
+.result h1{
+ font-size: 80px;
+ font-weight: 500;
+}
+
+.result h2{
+ font-size: 30px;
+ font-weight: 500;
+}
+
+.detail{
+       width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.val-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.val {
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
