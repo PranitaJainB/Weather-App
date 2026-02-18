@@ -17,4 +17,10 @@ async function searchWeather() {
     const response = await fetch(`${apiUrl}&q=${cityName}`)
     const data = await response.json();
     console.log(data)
+    document.querySelector(".humidity-val").innerHTML = data.main.humidity + " %";
+    document.querySelector(".wind-val").innerHTML = data.wind.speed + " km/h";
+    document.querySelector(".pressure-val").innerHTML = data.main.pressure;
+    document.querySelector(".city-name").innerHTML = data.name;
+    document.querySelector(".temperature").innerHTML = Math.round(data.main.temp) + "°  C";
+
 }
