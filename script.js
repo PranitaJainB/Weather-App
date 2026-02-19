@@ -13,14 +13,41 @@ searchBtn.addEventListener("click", searchWeather);
 
 async function searchWeather() {
     const cityName = document.getElementById("city-input").value
-    console.log(cityName)
-    const response = await fetch(`${apiUrl}&q=${cityName}`)
-    const data = await response.json();
-    console.log(data)
-    document.querySelector(".humidity-val").innerHTML = data.main.humidity + " %";
-    document.querySelector(".wind-val").innerHTML = data.wind.speed + " km/h";
-    document.querySelector(".pressure-val").innerHTML = data.main.pressure;
-    document.querySelector(".city-name").innerHTML = data.name;
-    document.querySelector(".temperature").innerHTML = Math.round(data.main.temp) + "°  C";
+    const errorEl = document.querySelector(".error-msg");
+    if (!cityName) {
+        showError("Please enter a city name");
+        return;
+    }
+    try {
+        const response = await fetch(`${apiUrl}&q=${cityName}`)
+        console.log(response)
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error("City not found.Check city spelling.")
+            } else {
+                const msg = response.statusText?response.statusText:"Something went wrong.Try again later."
+                throw new Error(msg)
+            }
+        }
+        const data = await response.json();
+        errorEl.classList.add("hideError")
+        document.querySelector(".humidity-val").innerHTML = data.main.humidity + " %";
+        document.querySelector(".wind-val").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".pressure-val").innerHTML = data.main.pressure;
+        document.querySelector(".city-name").innerHTML = data.name;
+        document.querySelector(".temperature").innerHTML = Math.round(data.main.temp) + "°  C";
+    } catch (error) {
+        showError(error.message)
+    }
+}
 
+function showError(message) {
+    const errorEl = document.querySelector(".error-msg");
+    errorEl.innerText = message;
+    errorEl.classList.add("err-show", "text-shake");
+    setTimeout(() => errorEl.classList.remove("text-shake"), 300);
+}
+function hideError() {
+    const errorEl = document.querySelector(".error-msg");
+    errorEl.classList.add("error", "error-msg.show");
 }

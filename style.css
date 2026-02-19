@@ -5,12 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-   
-}
+body {}
 
 .card {
-     /* background-color: #b6aaaa; */
+    /* background-color: #b6aaaa; */
     border: 2px solid #000;
     width: 90%;
     max-width: 700px;
@@ -46,38 +44,39 @@ body {
     width: 60px;
 }
 
-.search button img{  
-        width: 20px;
+.search button img {
+    width: 20px;
 }
 
 
-.weather-icon{
-     width: clamp(24px, 40vw, 130px);
-    margin-top: 80px    ;
-}
-.detail img{
-     width: clamp(24px, 40vw, 80px);
-    margin-top: 80px    ;
+.weather-icon {
+    width: clamp(24px, 40vw, 130px);
+    margin-top: 80px;
 }
 
-.result h1{
- font-size: 80px;
- font-weight: 500;
+.detail img {
+    width: clamp(24px, 40vw, 80px);
+    margin-top: 80px;
 }
 
-.result h2{
- font-size: 50px;
- font-weight: 500;
+.result h1 {
+    font-size: 80px;
+    font-weight: 500;
 }
 
-.detail{
-       width: 100%;
+.result h2 {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.detail {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.val-title{
+.val-title {
     font-size: 20px;
     font-weight: 500;
 }
@@ -88,3 +87,39 @@ body {
     margin-top: 5px;
 }
 
+.error-msg {
+    color: rgb(243, 79, 79);
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+.err-hide {
+    visibility: hidden;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+.text-shake {
+    animation: shake 0.5s;
+}
+
+.err-show {
+    visibility: visible;
+}
