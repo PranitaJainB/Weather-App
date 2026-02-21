@@ -4,11 +4,12 @@
 //{"coord":{"lon":73.6918,"lat":24.5712},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":292.29,"feels_like":290.94,"temp_min":292.29,"temp_max":292.29,"pressure":1015,"humidity":26,"sea_level":1015,"grnd_level":941},"visibility":10000,"wind":{"speed":2.08,"deg":343,"gust":2.09},"clouds":{"all":0},"dt":1771180050,"sys":{"country":"IN","sunrise":1771119572,"sunset":1771160368},"timezone":19800,"id":1253986,"name":"Udaipur","cod":200}
 //1234 = Sydney
 
+const apiKey = "5cdf5c8e546c82497daa3d947c79747e"
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${apiKey}`
 
 const searchBtn = document.getElementById("search-btn");
 const userInput = document.getElementById("city-input")
-const apiKey = "5cdf5c8e546c82497daa3d947c79747e"
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${apiKey}`
+const loadingText = document.querySelector(".loading")
 
 hideResult()
 searchBtn.addEventListener("click", searchWeather);
@@ -31,6 +32,7 @@ async function searchWeather() {
         return;
     }
     try {
+        // setTimeout(()=>,2000)
         const response = await fetch(`${apiUrl}&q=${cityName}`)
         console.log(response)
         if (!response.ok) {
