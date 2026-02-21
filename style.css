@@ -3,17 +3,23 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
-body {}
-
+body{
+    min-height: 100svh;
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+  
+}
 .card {
-    /* background-color: #b6aaaa; */
+    
     border: 2px solid #000;
-    width: 90%;
-    max-width: 700px;
-    margin: 100px auto 30px;
-    padding: 40px 35px;
+    width: min(90%,700px);
+    margin: min(5vh,80px) auto;
+    padding:clamp(10px,3vw,40px) clamp(16px,4vw,35px);
     text-align: center;
 }
 
@@ -25,47 +31,52 @@ body {}
     justify-content: space-between;
 
 }
+.result {
+    border: 2px solid #000;
+    width: 100%;
+    padding:  clamp(10px,4vw,50px);
+}
 
 .search input {
     border: 0;
     outline: 0;
     flex: 1;
     margin-right: 30px;
-    font-size: 18px;
-    padding: 10px;
-    height: 60px;
+    font-size: clamp(16px,4vw,18px);
+    padding: clamp(8px,2vw,10px);
+    height: 56px;
 }
 
 .search button {
     border: 0;
     outline: 0;
     cursor: pointer;
-    height: 60px;
-    width: 60px;
+    height: 56px;
+    width: 56px;
 }
 
 .search button img {
-    width: 20px;
+    width: clamp(16px,4vw,20px)
 }
 
 
 .weather-icon {
-    width: clamp(24px, 40vw, 130px);
-    margin-top: 80px;
+    width: clamp(24px, 30vw, 130px);
+    margin-top:  clamp(5px,3vh,80px);
 }
 
 .detail img {
-    width: clamp(24px, 40vw, 80px);
-    margin-top: 80px;
+    width: clamp(24px, 10vw, 60px);
+    margin-top: clamp(12px,3vh,40px);
 }
 
 .result h1 {
-    font-size: 80px;
+    font-size: clamp(36px,8vw,80px);
     font-weight: 500;
 }
 
 .result h2 {
-    font-size: 50px;
+    font-size: clamp(24px,6vw,50px);
     font-weight: 500;
 }
 
@@ -74,17 +85,19 @@ body {}
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: clamp(30px,3vw,50px);
+    /* flex-wrap: wrap; */
 }
 
 .val-title {
-    font-size: 20px;
+    font-size: clamp(12px,4vw,25px);
     font-weight: 500;
 }
 
 .val {
-    font-size: 40px;
+    font-size: clamp(15px,5vw,30px);
     font-weight: 300;
-    margin-top: 5px;
+    margin-top: clamp(2px,2vw,5px);
 }
 
 .error-msg {
@@ -93,12 +106,10 @@ body {}
     font-weight: 500;
     margin-top: 10px;
     text-align: center;
+     visibility: hidden;
 
 }
 
-.err-hide {
-    visibility: hidden;
-}
 
 @keyframes shake {
 
@@ -123,3 +134,4 @@ body {}
 .err-show {
     visibility: visible;
 }
+
