@@ -13,10 +13,16 @@ userInput.addEventListener("input", () => {
     hideResult()
 })
 userInput.addEventListener("keydown", (e) => {
+    if (/\d/.test(e.key)) {
+        e.preventDefault()
+        showError("Please enter only alphabets");
+    }
+})
+userInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter")
         searchWeather()
 })
-userInput.addEventListener("focus",()=>{userInput.select()})
+userInput.addEventListener("focus", () => { userInput.select() })
 
 async function searchWeather() {
     const cityName = document.getElementById("city-input").value
@@ -49,11 +55,11 @@ async function searchWeather() {
 
 function showResult(data) {
     document.querySelector(".result").style.display = "block"
-    document.querySelector(".humidity-val").textContent  = data.main.humidity + " %";
-    document.querySelector(".wind-val").textContent  = data.wind.speed + " km/h";
-    document.querySelector(".pressure-val").textContent  = data.main.pressure + "kPa";
-    document.querySelector(".city-name").textContent  = data.name;
-    document.querySelector(".temperature").textContent  = Math.round(data.main.temp) + " °C";
+    document.querySelector(".humidity-val").textContent = data.main.humidity + " %";
+    document.querySelector(".wind-val").textContent = data.wind.speed + " km/h";
+    document.querySelector(".pressure-val").textContent = data.main.pressure + "kPa";
+    document.querySelector(".city-name").textContent = data.name;
+    document.querySelector(".temperature").textContent = Math.round(data.main.temp) + " °C";
 }
 function hideResult() {
     document.querySelector(".result").style.display = "none"
@@ -73,6 +79,7 @@ function hideError() {
 
 // 5cdf5c8e546c82497daa3d947c79747e
 //https://api.openweathermap.org/data/2.5/weather?units=metric&q=udaipur&appid=5cdf5c8e546c82497daa3d947c79747e
+
 //q can be city name , city id , country code
 //{"coord":{"lon":73.6918,"lat":24.5712},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":292.29,"feels_like":290.94,"temp_min":292.29,"temp_max":292.29,"pressure":1015,"humidity":26,"sea_level":1015,"grnd_level":941},"visibility":10000,"wind":{"speed":2.08,"deg":343,"gust":2.09},"clouds":{"all":0},"dt":1771180050,"sys":{"country":"IN","sunrise":1771119572,"sunset":1771160368},"timezone":19800,"id":1253986,"name":"Udaipur","cod":200}
 //1234 = Sydney
@@ -104,3 +111,5 @@ function hideError() {
 //debounce API calls
 //XSS attack
 //svg vs png
+// auto fill city names as we type
+//display that you also take counyry code , city code 

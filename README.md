@@ -8,14 +8,15 @@ A clean, responsive weather application built using **vanilla HTML, CSS, and Jav
 
 ## ✨ Features
 
-- 🔍 **Search weather by city name**
-- ⌨️ **Enter key support** for faster search
-- 🧭 **Real-time weather data** using OpenWeatherMap API
 - 📱 **Responsive UI** (works across mobile, tablet, and desktop)
 - ⚠️ **User-friendly error handling**
+- 🧭 **Real-time weather data** using OpenWeatherMap API
 - 🔄 **Reset UI on error**
 - 🛡️ **XSS-safe DOM updates**
+- ⌨️ **Enter key support** for faster search
+- 🔍 **Search weather by city name**
 - 🎯 **Thoughtful UX behaviors**
+- 1️⃣ **Number not allowed as input**
 
 ---
 
