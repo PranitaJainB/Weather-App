@@ -16,7 +16,7 @@ A clean, responsive weather application built using **vanilla HTML, CSS, and Jav
 - ⌨️ **Enter key support** for faster search
 - 🔍 **Search weather by city name**
 - 🎯 **Thoughtful UX behaviors**
-- 1️⃣ **Number not allowed as input**
+- 🔢 **Number not allowed as input**
 
 ---
 
